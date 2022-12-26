@@ -18,6 +18,7 @@ public class CommandContainerTest {
     @BeforeEach
     public void init(){
         SendBotMessageService sendBotMessageService = Mockito.mock(SendBotMessageService.class);
+        commandContainer = new CommandContainer(sendBotMessageService);
     }
 
     @Test
