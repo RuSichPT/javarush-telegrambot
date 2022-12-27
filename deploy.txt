@@ -1,0 +1,1 @@
+bash start.sh test_javarush_rusichpt_bot 5152870460:AAFtVQTauWsRoznlEqCkhsHtKaHJXMobjss
