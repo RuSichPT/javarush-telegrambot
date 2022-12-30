@@ -2,11 +2,12 @@ package com.github.RuSichPT.javarushtelegrambot.bot;
 
 import com.github.RuSichPT.javarushtelegrambot.command.CommandContainer;
 import com.github.RuSichPT.javarushtelegrambot.service.SendBotMessageServiceImpl;
+import com.github.RuSichPT.javarushtelegrambot.service.TelegramUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import static com.github.RuSichPT.javarushtelegrambot.command.CommandName.NO;
 
@@ -26,8 +27,9 @@ public class JavarushTelegramBot extends TelegramLongPollingBot {
     @Value("${bot.token}")
     private String token;
 
-    public JavarushTelegramBot() {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    @Autowired
+    public JavarushTelegramBot(TelegramUserService telegramUserService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),telegramUserService);
     }
 
     @Override
