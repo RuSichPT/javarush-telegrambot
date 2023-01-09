@@ -27,4 +27,4 @@ jobs:
         with:
           java-version: 17
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -Dspring.profiles.active=test -B package --file pom.xml
