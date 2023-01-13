@@ -15,7 +15,7 @@ jobs:
     services:
       mysql:
         image: mysql:8.0.15
-        ports: [ '3307:3306' ]
+        #ports: [ '3307:3306' ]
     steps:
       - uses: actions/checkout@v2
       - name: Set up MySQL
