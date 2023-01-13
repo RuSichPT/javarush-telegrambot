@@ -20,7 +20,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 @ActiveProfiles("test")
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
-public class TelegramUserRepositoryIT {
+public class TelegramUserRepositoryIntTest {
 
     @Autowired
     private TelegramUserRepository telegramUserRepository;
