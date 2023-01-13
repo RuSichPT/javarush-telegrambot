@@ -17,6 +17,7 @@ jobs:
       - name: Set up MySQL
         uses: mirromutth/mysql-action@v1.1
         with:
+          host port: 3307 # Optional, default value is 3306. The port of host
           mysql version: '8.0.15'
           mysql database: 'dev_jrtb_db'
           mysql root password: 'root'
