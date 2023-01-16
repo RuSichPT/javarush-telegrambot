@@ -1,7 +1,6 @@
-package com.github.RuSichPT.javarushtelegrambot;
+package com.github.RuSichPT.javarushtelegrambot.service;
 
 import com.github.RuSichPT.javarushtelegrambot.bot.JavarushTelegramBot;
-import com.github.RuSichPT.javarushtelegrambot.service.SendBotMessageServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
