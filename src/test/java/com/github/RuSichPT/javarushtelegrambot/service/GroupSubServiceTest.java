@@ -19,7 +19,7 @@ class GroupSubServiceTest {
     private GroupSubRepository groupSubRepository;
     private TelegramUser telegramUser;
 
-    private final static String CHAT_ID = "1";
+    private final static Long CHAT_ID = 1L;
     private final static Integer GROUP_ID = 1123;
     private final static Integer LAST_POST_ID = 310;
 
@@ -49,7 +49,7 @@ class GroupSubServiceTest {
         GroupSub expectedGroupSub = new GroupSub();
         expectedGroupSub.setId(groupDiscussionInfo.getId());
         expectedGroupSub.setTitle(groupDiscussionInfo.getTitle());
-        expectedGroupSub.setLastArticleId(LAST_POST_ID);
+        expectedGroupSub.setLastPostId(LAST_POST_ID);
         expectedGroupSub.addUser(telegramUser);
 
         // when
@@ -63,7 +63,7 @@ class GroupSubServiceTest {
     public void shouldProperlyAddUserToExistingGroup() {
         // given
         TelegramUser oldTelegramUser = new TelegramUser();
-        oldTelegramUser.setChatId("2");
+        oldTelegramUser.setChatId(2L);
         oldTelegramUser.setActive(true);
 
         GroupDiscussionInfo groupDiscussionInfo = new GroupDiscussionInfo();

@@ -60,9 +60,9 @@ public class JavarushTelegramBot extends TelegramLongPollingBot {
             if (message.startsWith(COMMAND_PREFIX))
             {
                 String commandIdentifier = message.split(" ")[0].toLowerCase();
-                commandContainer.retrieveCommand(commandIdentifier, update.getMessage().getFrom().getUserName()).execute(update);
+                commandContainer.findCommand(commandIdentifier, update.getMessage().getFrom().getUserName()).execute(update);
             } else {
-                commandContainer.retrieveCommand(NO.getCommandName(),update.getMessage().getFrom().getUserName()).execute(update);
+                commandContainer.findCommand(NO.getCommandName(),update.getMessage().getFrom().getUserName()).execute(update);
             }
         }
     }

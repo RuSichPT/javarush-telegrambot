@@ -25,7 +25,7 @@ public class ListGroupSubCommandTest {
         //given
         TelegramUser telegramUser = new TelegramUser();
         telegramUser.setActive(true);
-        telegramUser.setChatId("1");
+        telegramUser.setChatId(1L);
 
         List<GroupSub> groupSubList = new ArrayList<>();
         groupSubList.add(populateGroupSub(1, "gs1"));
@@ -42,7 +42,7 @@ public class ListGroupSubCommandTest {
 
         ListGroupSubCommand command = new ListGroupSubCommand(sendBotMessageService, telegramUserService);
 
-        Update update = prepareUpdate(Long.valueOf(telegramUser.getChatId()), LIST_GROUP_SUB.getCommandName());
+        Update update = prepareUpdate(telegramUser.getChatId(), LIST_GROUP_SUB.getCommandName());
 
         String collectedGroups = "Я нашел все подписки на группы: \n\n" +
                 telegramUser.getGroupSubs().stream()
