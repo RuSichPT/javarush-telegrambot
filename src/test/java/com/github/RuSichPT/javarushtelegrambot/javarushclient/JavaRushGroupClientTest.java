@@ -1,4 +1,4 @@
-package javarushclient;
+package com.github.RuSichPT.javarushtelegrambot.javarushclient;
 
 import com.github.RuSichPT.javarushtelegrambot.javarushclient.JavaRushGroupClient;
 import com.github.RuSichPT.javarushtelegrambot.javarushclient.JavaRushGroupClientImpl;
