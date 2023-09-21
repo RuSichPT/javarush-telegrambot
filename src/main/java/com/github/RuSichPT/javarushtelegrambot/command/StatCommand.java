@@ -3,7 +3,6 @@ package com.github.RuSichPT.javarushtelegrambot.command;
 import com.github.RuSichPT.javarushtelegrambot.javarushclient.dto.StatisticDTO;
 import com.github.RuSichPT.javarushtelegrambot.service.SendBotMessageService;
 import com.github.RuSichPT.javarushtelegrambot.service.StatisticsService;
-import com.github.RuSichPT.javarushtelegrambot.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.meta.api.objects.Update;
 

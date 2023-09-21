@@ -1,7 +1,5 @@
 package com.github.RuSichPT.javarushtelegrambot.javarushclient;
 
-import com.github.RuSichPT.javarushtelegrambot.javarushclient.JavaRushGroupClient;
-import com.github.RuSichPT.javarushtelegrambot.javarushclient.JavaRushGroupClientImpl;
 import com.github.RuSichPT.javarushtelegrambot.javarushclient.dto.GroupCountRequestArgs;
 import com.github.RuSichPT.javarushtelegrambot.javarushclient.dto.GroupDiscussionInfo;
 import com.github.RuSichPT.javarushtelegrambot.javarushclient.dto.GroupInfo;

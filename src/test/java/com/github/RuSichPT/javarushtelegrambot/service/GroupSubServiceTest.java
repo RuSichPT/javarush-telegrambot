@@ -8,15 +8,26 @@ import com.github.RuSichPT.javarushtelegrambot.repository.entity.TelegramUser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
 @DisplayName("Unit-level testing for GroupSubService")
+@ExtendWith(MockitoExtension.class)
 class GroupSubServiceTest {
-
-    private GroupSubService groupSubService;
+    @Mock
     private GroupSubRepository groupSubRepository;
+    @Mock
+    TelegramUserService telegramUserService;
+    @Mock
+    JavaRushGroupClient javaRushGroupClient;
+
+    @InjectMocks
+    private GroupSubServiceImpl groupSubService;
     private TelegramUser telegramUser;
 
     private final static Long CHAT_ID = 1L;
@@ -25,18 +36,10 @@ class GroupSubServiceTest {
 
     @BeforeEach
     void init() {
-        groupSubRepository = Mockito.mock(GroupSubRepository.class);
-        TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
-        JavaRushGroupClient javaRushGroupClient = Mockito.mock(JavaRushGroupClient.class);
-        groupSubService = new GroupSubServiceImpl(groupSubRepository, telegramUserService, javaRushGroupClient);
-
         telegramUser = new TelegramUser();
         telegramUser.setChatId(CHAT_ID);
         telegramUser.setActive(true);
-
         Mockito.when(telegramUserService.findByChatId(CHAT_ID)).thenReturn(Optional.of(telegramUser));
-
-        Mockito.when(javaRushGroupClient.findLastPostId(GROUP_ID)).thenReturn(LAST_POST_ID);
     }
 
     @Test
@@ -51,6 +54,8 @@ class GroupSubServiceTest {
         expectedGroupSub.setTitle(groupDiscussionInfo.getTitle());
         expectedGroupSub.setLastPostId(LAST_POST_ID);
         expectedGroupSub.addUser(telegramUser);
+
+        Mockito.when(javaRushGroupClient.findLastPostId(GROUP_ID)).thenReturn(LAST_POST_ID);
 
         // when
         groupSubService.save(CHAT_ID, groupDiscussionInfo);
